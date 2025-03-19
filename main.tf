@@ -60,7 +60,7 @@ resource "aws_lambda_function" "my_lambda" {
   role          = data.aws_iam_role.lambda.arn  # IAM Role for Lambda (using the data block)
   handler       = "index.lambda_handler"  # The Python handler function (index.py)
   runtime       = "python3.11"  # Runtime for Python
-  filename      = "lambda_function.zip"  # Ensuring that we have zipped Python code into a .zip file
+  filename      = "lambda_function/lambda_function.zip"  # Path to the zip file inside lambda_function folder # Ensuring that we have zipped Python code into a .zip file
   vpc_config {
     subnet_ids         = aws_subnet.private_subnet[*].id  # Subnet IDs from private subnets
     security_group_ids = [aws_security_group.lambda_sg.id]  # Attach appropriate security group
