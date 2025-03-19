@@ -51,7 +51,7 @@ pipeline {
                 script {
                     echo 'Invoking your AWS Lambda'
                     // Use the AWS CLI to invoke the Lambda function
-                    sh 'aws lambda invoke --function-name InvokeAPI-Lambda123123 --payload "{}" result.json'
+                    sh 'aws lambda invoke --function-name InvokeAPI-Lambda101 --payload "{} --log-type Tail" result.json'
                     // Print the Lambda execution result
                     sh 'cat result.json'
                 }
