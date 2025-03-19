@@ -55,8 +55,8 @@ resource "aws_security_group" "lambda_sg" {
 
 # Assuming the private subnet is already created using Terraform
 
-resource "aws_lambda_function" "my_lambda101" {
-  function_name = "InvokeAPI-Lambda101"
+resource "aws_lambda_function" "my_lambda201" {
+  function_name = "InvokeAPI-Lambda201"
   role          = data.aws_iam_role.lambda.arn  # IAM Role for Lambda (using the data block)
   handler       = "lambda_function.lambda_handler"  # The Python handler function (index.py)
   runtime       = "python3.11"  # Runtime for Python
