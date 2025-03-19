@@ -55,12 +55,13 @@ resource "aws_security_group" "lambda_sg" {
 
 # Assuming the private subnet is already created using Terraform
 
-resource "aws_lambda_function" "my_lambda123" {
-  function_name = "InvokeAPI-Lambda123"
+resource "aws_lambda_function" "my_lambda123123" {
+  function_name = "InvokeAPI-Lambda123123"
   role          = data.aws_iam_role.lambda.arn  # IAM Role for Lambda (using the data block)
   handler       = "lambda_function.lambda_handler"  # The Python handler function (index.py)
   runtime       = "python3.11"  # Runtime for Python
   filename      = "lambda_function/lambda_function.zip"  # Path to the zip file inside lambda_function folder # Ensuring that we have zipped Python code into a .zip file
+  timeout       = 60  # Set the timeout to 60 seconds or whatever is suitable
   vpc_config {
     subnet_ids         = aws_subnet.private_subnet[*].id  # Subnet IDs from private subnets
     security_group_ids = [aws_security_group.lambda_sg.id]  # Attach appropriate security group
